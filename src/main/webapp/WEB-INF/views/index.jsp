@@ -30,8 +30,6 @@
             <c:forEach items="${posts}" var="post">
                 <tr>
                     <td><c:out value="${post.name}"/></td>
-                </tr>
-                <tr>
                     <td><c:out value="${post.created}"/></td>
                 </tr>
             </c:forEach>

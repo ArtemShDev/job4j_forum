@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.forum.model.Post;
 import ru.job4j.forum.service.PostService;
 
-import javax.servlet.http.HttpServletRequest;
-
 @Controller
 public class PostControl {
     private final PostService posts;
@@ -22,14 +20,14 @@ public class PostControl {
     @GetMapping("/edit")
     public String index(@RequestParam(value = "id", required = false) int id, Model model) {
         if (id != 0) {
-            model.addAttribute("post", posts.getDyId(id));
+            model.addAttribute("post", posts.getById(id));
         }
         return "edit";
     }
 
     @GetMapping("/post")
     public String post(@RequestParam(value = "id") int id, Model model) {
-        model.addAttribute("post", posts.getDyId(id));
+        model.addAttribute("post", posts.getById(id));
         return "post";
     }
 
